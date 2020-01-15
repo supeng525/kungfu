@@ -5,6 +5,8 @@ class Source:
     CTP = "ctp"
     XTP = "xtp"
     OES = "oes"
+    ## add ufxInfo
+    UFX = "ufx"
 
 class Exchange:
     SSE = "SSE"

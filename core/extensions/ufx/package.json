@@ -1,0 +1,107 @@
+{
+  "kungfuConfig": {
+    "type": "source",
+    "config": {
+      "name": "ufx",
+      "type": "stock",
+      "key": "user_id",
+      "config": [
+        {
+          "key": "ufx_user_id",
+          "name": "ufx_user_id",
+          "type": "str",
+          "errMsg": "请填写账户 ufx user_id",
+          "required": true
+        },
+        {
+          "key": "ufx_password",
+          "name": "ufx_password",
+          "type": "password",
+          "errMsg": "请填写密码 ufx password",
+          "required": true,
+          "validator": [
+            "blankValidator"
+          ]
+        },
+        {
+          "key": "ufx_ip",
+          "name": "ufx_ip",
+          "type": "str",
+          "errMsg": "请填写UFX交易IP td_ip",
+          "required": true
+        },
+        {
+          "key": "ufx_port",
+          "name": "ufx_port",
+          "type": "int",
+          "errMsg": "请填写UFX交易端口 td_port",
+          "validator": [
+            "intValidator"
+          ],
+          "required": true
+        },
+        {
+          "key": "TDF_ip",
+          "name": "TDF_ip",
+          "type": "str",
+          "errMsg": "请填写TDF行情IP md_ip",
+          "required": true
+        },
+        {
+          "key": "TDF_port",
+          "name": "TDF_port",
+          "type": "int",
+          "errMsg": "请填写TDF行情端口 md_port",
+          "validator": [
+            "intValidator"
+          ],
+          "required": true
+        },
+        {
+          "key": "TDF_login_id",
+          "name": "TDF_login_id",
+          "type": "str",
+          "errMsg": "请填写账户 TDF login_id",
+          "required": true
+        },
+        {
+          "key": "TDF_password",
+          "name": "TDF_password",
+          "type": "password",
+          "errMsg": "请填写密码 TDF password",
+          "required": true,
+          "validator": [
+            "blankValidator"
+          ]
+        },
+        {
+          "key": "client_id",
+          "name": "client_id",
+          "type": "int",
+          "errMsg": "请填写自定义多点登录ID 0-99整数",
+          "required": true,
+          "validator": [
+            "o99Validator",
+            "intValidator"
+          ],
+          "tip": "自定义多点登陆ID，需是0～99内整数"
+        },
+        {
+          "key": "protocol",
+          "name": "protocol",
+          "type": "str",
+          "errMsg": "请填写 protocol",
+          "required": false,
+          "tip": "请选择 protocol, tcp or udp"
+        },
+        {
+          "key": "buffer_size",
+          "name": "buffer_size",
+          "type": "int",
+          "errMsg": "请填写 buffer size",
+          "required": false
+        }
+      ]
+    }
+  }
+}

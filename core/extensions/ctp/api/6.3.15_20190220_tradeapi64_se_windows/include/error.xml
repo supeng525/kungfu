@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="gb2312"?>
 <!-- edited with XMLSPY v2004 rel. 4 U (http://www.xmlspy.com) by wangzhaodong (ORiON) -->
-<!DOCTYPE errors SYSTEM
-        "/Users/luqing/Documents/win_dev/kungfu/core/extensions/ctp/api/6.3.15_20190220_tradeapi64_se_windows/include/error.dtd">
+<!DOCTYPE errors SYSTEM "error.dtd">
 <errors>
 	<error id="NONE" value="0" prompt="CTP:正确"/>
 	<error id="INVALID_DATA_SYNC_STATUS" value="1" prompt="CTP:不在已同步状态"/>

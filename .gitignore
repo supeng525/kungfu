@@ -34,3 +34,6 @@ package-lock.json
 # OS files
 .DS_Store
 *.log
+
+# core/extensions/ufx/
+core/extensions/ctp/api/

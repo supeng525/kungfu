@@ -112,6 +112,23 @@ class Ledger(pywingchun.Ledger):
                 self.publish(json.dumps(order_message))
             else:
                 self.ctx.logger.debug("order {} enter final status {}, failed to update".format(trade.order_id, order.status))
+        ## add ufxInfo
+        ## 待验证
+        if source_id == "ufx" and trade.order_id in self.ctx.orders:
+            self.ctx.logger.debug("update order {} by trade".format(trade.order_id))
+            order_record = self.ctx.orders[trade.order_id]
+            order = order_record["order"]
+            if not wc_utils.is_final_status(order.status):
+                order_message = self._message_from_order_event(event, order)
+                order_message["data"]["volume_left"] = order.volume_left - trade.volume
+                order_message["data"]["volume_traded"] = order.volume_traded + trade.volume
+                order_message["data"]["status"] = int(OrderStatus.PartialFilledActive) if order_message["data"]["volume_left"] > 0 else int(OrderStatus.PartialFilledNotActive)
+                self.ctx.db.add_order(**order_message["data"])
+                self.publish(json.dumps(order_message))
+            else:
+                self.ctx.logger.debug("order {} enter final status {}, failed to update".format(trade.order_id, order.status))
+
+        ## add ufxInfo
         self.ctx.db.add_trade(**message["data"])
         self.publish(json.dumps(message))
         
